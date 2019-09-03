@@ -1,1 +1,1 @@
-# zwiki_wizard
+# zwiki_wizard DEMO
