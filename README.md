@@ -1,1 +1,1 @@
-# zwiki_wizard DEMO
+# SAPUI5 - Wizard "FullStack" DEMO.
