@@ -1,0 +1,42 @@
+<mvc:View controllerName="pushjob.com.brzwiki_wizard.controller.View1" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified" displayBlock="true" xmlns="sap.m">
+	<App>
+		<pages>
+			<Page title="{i18n>title}">
+				<content>
+					<Wizard id="CreateMessageWizard" finishButtonText="Send" complete="sendmessage">
+						<WizardStep id="ProductTypeStep" title="Action" validated="true">
+							<MessageStrip class="sapUiSmallMarginBottom" text="You could expand this tutorial to perform more actions!" showIcon="true"/>
+							<Text class="sapUiSmallMarginBottom" text="Please select your action:"/>
+							<HBox alignItems="Center" justifyContent="Center" width="100%">
+								<SegmentedButton width="400px" selectionChange="setProductTypeFromSegmented">
+									<items>
+										<SegmentedButtonItem icon="sap-icon://notification-2" text="Message"/>
+										<SegmentedButtonItem icon="sap-icon://delete" text="Drop" enabled="false"/>
+										<SegmentedButtonItem icon="sap-icon://user-edit" text="Change" enabled="false"/>
+									</items>
+								</SegmentedButton>
+							</HBox>
+						</WizardStep>
+						<WizardStep id="ProductInfoStep" validated="true" title="User" activate="additionalInfoValidation">
+							<MessageStrip class="sapUiSmallMarginBottom" text="Please select the user (only active/online users are here):" showIcon="true"/>
+							<Select id="__input4" valueState="Success"
+							width="400px" items="{ path: '/TUsersSet', sorter: { path: 'Uname' } }">
+								<core:Item key="{Uname}" text="{Fullname}"/>
+							</Select>
+						</WizardStep>
+						<WizardStep id="OptionalInfoStep" validated="true" activate="optionalStepActivation" title="Message">
+							<TextArea id="__area0" placeholder="Type your text here..." rows="3" cols="40"/>
+						</WizardStep>
+					</Wizard>
+				</content>
+				<footer>
+					<OverflowToolbar>
+						<ToolbarSpacer/>
+						<Button icon="sap-icon://sys-back" press="back"/>
+					</OverflowToolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
